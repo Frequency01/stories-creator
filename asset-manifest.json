@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/stories-creator/static/css/main.c18d129a.chunk.css",
+    "main.js": "/stories-creator/static/js/main.5af28bd0.chunk.js",
+    "main.js.map": "/stories-creator/static/js/main.5af28bd0.chunk.js.map",
+    "runtime-main.js": "/stories-creator/static/js/runtime-main.a512da7d.js",
+    "runtime-main.js.map": "/stories-creator/static/js/runtime-main.a512da7d.js.map",
+    "static/js/2.a5a46411.chunk.js": "/stories-creator/static/js/2.a5a46411.chunk.js",
+    "static/js/2.a5a46411.chunk.js.map": "/stories-creator/static/js/2.a5a46411.chunk.js.map",
+    "static/js/3.93d7a58b.chunk.js": "/stories-creator/static/js/3.93d7a58b.chunk.js",
+    "static/js/3.93d7a58b.chunk.js.map": "/stories-creator/static/js/3.93d7a58b.chunk.js.map",
+    "index.html": "/stories-creator/index.html",
+    "static/css/main.c18d129a.chunk.css.map": "/stories-creator/static/css/main.c18d129a.chunk.css.map",
+    "static/js/2.a5a46411.chunk.js.LICENSE.txt": "/stories-creator/static/js/2.a5a46411.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a512da7d.js",
+    "static/js/2.a5a46411.chunk.js",
+    "static/css/main.c18d129a.chunk.css",
+    "static/js/main.5af28bd0.chunk.js"
+  ]
+}
