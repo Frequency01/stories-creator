@@ -4,6 +4,7 @@
   width: 32rem;
   overflow: hidden;
   border-radius: 2rem;
+  cursor: pointer;
 }
 .previewWrapper {
   display: flex;
@@ -37,7 +38,7 @@
   height: 100%;
   width: 100%;
 }
-.buttonGroup {
+.presetWrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -45,6 +46,6 @@
   justify-content: center;
 }
 
-.buttonGroup button {
+.presetWrapper button {
   margin: 1rem;
 }

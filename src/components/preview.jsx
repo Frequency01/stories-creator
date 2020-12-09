@@ -8,7 +8,7 @@ import Button from "@material-ui/core/Button";
 import "./preview.css";
 
 const ComponentToPrint = React.forwardRef(
-  ({ text, color, image, bannerURL }, ref) => (
+  ({ text, color, image, bannerURL, colorOverlayOnBack }, ref) => (
     <div
       ref={ref}
       className="storyWrapper"
@@ -17,6 +17,7 @@ const ComponentToPrint = React.forwardRef(
       <div
         style={{
           background: color,
+          zIndex: colorOverlayOnBack ? "1" : "3",
         }}
         className="colorOverlay"
       />
@@ -27,7 +28,7 @@ const ComponentToPrint = React.forwardRef(
   )
 );
 
-const Preview = ({ text, color, image, bannerURL }) => {
+const Preview = ({ text, color, image, bannerURL, colorOverlayOnBack }) => {
   const [open, setOpen] = useState(false);
 
   const handleClick = () => {
@@ -41,6 +42,7 @@ const Preview = ({ text, color, image, bannerURL }) => {
       color={color}
       image={image}
       bannerURL={bannerURL}
+      colorOverlayOnBack={colorOverlayOnBack}
     />
   );
   let copyHTML = () => renderToString(StoryJSX);
@@ -49,7 +51,7 @@ const Preview = ({ text, color, image, bannerURL }) => {
     <div className="previewWrapper">
       <div>
         {StoryJSX}
-        <div className="buttonGroup">
+        <div className="presetWrapper">
           <Button
             variant="outlined"
             color="primary"

@@ -3,10 +3,10 @@ import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
-import "./editor.css";
+import hexToRgba from "hex-to-rgba";
 import { SketchPicker } from "react-color";
 import { GradientPickerPopover } from "react-linear-gradient-picker";
-import hexToRgba from "hex-to-rgba";
+import "./editor.css";
 
 const rgbHex = require("rgb-hex");
 
@@ -53,11 +53,14 @@ const Editor = ({
   bannerURL,
   image,
   color,
-  handlePresetOne,
-  handlePresetTwo,
-  handlePresetThree,
+  handlePresetMusk,
+  handlePresetDress,
+  handlePresetShoes,
   colorIsActive,
   setColorIsActive,
+  setColorOverlayOnBack,
+  colorOverlayOnBack,
+  handlePresetDog,
 }) => {
   const [open, setOpen] = useState(false);
   const [angle, setAngle] = useState(90);
@@ -70,6 +73,13 @@ const Editor = ({
     setColorIsActive(false);
   };
 
+  let handleLayerFront = () => {
+    setColorOverlayOnBack(true);
+  };
+  let handleLayerBack = () => {
+    setColorOverlayOnBack(false);
+  };
+
   return (
     <Grid
       container
@@ -78,18 +88,18 @@ const Editor = ({
       alignItems="center"
       className="editorContanier"
     >
-      <div className="buttonGroup">
+      <div className="presetWrapper">
         <Button
           variant="outlined"
           color="primary"
-          onClick={(_e) => handlePresetOne()}
+          onClick={(_e) => handlePresetMusk()}
         >
           Preset 1
         </Button>
         <Button
           variant="outlined"
           color="primary"
-          onClick={(_e) => handlePresetTwo()}
+          onClick={(_e) => handlePresetShoes()}
         >
           Preset 2
         </Button>
@@ -97,9 +107,16 @@ const Editor = ({
         <Button
           variant="outlined"
           color="primary"
-          onClick={(_e) => handlePresetThree()}
+          onClick={(_e) => handlePresetDress()}
         >
           Preset 3
+        </Button>
+        <Button
+          variant="outlined"
+          color="primary"
+          onClick={(_e) => handlePresetDog()}
+        >
+          Preset 4
         </Button>
       </div>
       <form noValidate autoComplete="off" style={{ width: "95%" }}>
@@ -132,7 +149,7 @@ const Editor = ({
             />
           </Grid>
           <Grid item>
-            <ButtonGroup color="primary">
+            <ButtonGroup color="primary" className="editorButtonGroup">
               <Button
                 variant={colorIsActive ? "contained" : ""}
                 onClick={(e) => handleShowColor()}
@@ -184,6 +201,20 @@ const Editor = ({
             )}
           </Grid>
           <Grid item>
+            <ButtonGroup color="primary" className="editorButtonGroup">
+              <Button
+                variant={colorOverlayOnBack ? "contained" : ""}
+                onClick={(e) => handleLayerFront()}
+              >
+                Color on Back
+              </Button>
+              <Button
+                variant={colorOverlayOnBack ? "" : "contained"}
+                onClick={(e) => handleLayerBack()}
+              >
+                Color on Front
+              </Button>
+            </ButtonGroup>
             <TextField
               className="editorInput"
               id="outlined-basic"

@@ -6,37 +6,54 @@ import Preview from "./components/preview";
 // import carImage from "./components/carImageDataURI";
 
 function App() {
-  const [text, setText] = useState("Your Text");
-  const [color, setColor] = useState("rgba(40, 21, 21, 0.5)");
-  const [image, setImage] = useState("https://i.imgur.com/tEO5HyY.png");
+  const [text, setText] = useState("Ждем ваш текст..");
+  const [color, setColor] = useState(
+    "linear-gradient(0deg, rgba(231, 235, 36, 0.5) 0%, rgba(134, 37, 216, 0.5) 100%)"
+  );
+  const [image, setImage] = useState("https://i.imgur.com/2fKdXRY.png");
   const [bannerURL, setBannerURL] = useState("https://ya.ru/");
-  const [colorIsActive, setColorIsActive] = useState(true);
+  const [colorIsActive, setColorIsActive] = useState(false);
+  const [colorOverlayOnBack, setColorOverlayOnBack] = useState(true);
 
-  let handlePresetOne = () => {
-    setColorIsActive(true);
-    setImage("https://i.imgur.com/tcsvWvw.jpg ");
-    setColor("rgba(187, 171, 62, 0.5)");
-    setText("Купить собаку шиба-ину");
-    setBannerURL("https://www.awwwards.com/");
-  };
-
-  let handlePresetTwo = () => {
-    setColorIsActive(true);
-    setImage("https://i.imgur.com/oJHnD4p.jpg");
-    setColor("rgba(81, 67, 67, 0.5)");
-    setText("Купить платье для выпускного");
-    setBannerURL("https://unsplash.com/");
-  };
-
-  let handlePresetThree = () => {
+  let handlePresetMusk = () => {
+    setColorOverlayOnBack(true);
     setColorIsActive(false);
-    setImage("https://i.imgur.com/uqQVNXu.jpg");
+    setImage("https://i.imgur.com/TktGZ7x.png");
     setColor(
-      "linear-gradient(0deg, rgba(197, 197, 39, 0.6) 0%, rgba(161, 46, 239, 0.61) 100%)"
+      "linear-gradient(0deg, rgb(57, 158, 152, 0.5) 0%, rgb(206, 58, 255, 0.5) 100%)"
     );
-    setText("Продают собственники");
+    setText("Как тебе такое, Илон Маск?");
     setBannerURL("https://www.thebestdesigns.com/");
   };
+
+  let handlePresetShoes = () => {
+    setColorIsActive(true);
+    setImage("https://i.imgur.com/AELINWP.png");
+    setColor("rgba(136, 39, 155, 0.5)");
+    setText("Осенняя обувь");
+    setBannerURL("https://unsplash.com/");
+    setColorOverlayOnBack(false);
+  };
+
+  let handlePresetDress = () => {
+    setColorIsActive(false);
+    setImage("https://i.imgur.com/oJHnD4p.jpg");
+    setColor(
+      "linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(255, 255, 255, 0.27) 100%)"
+    );
+    setText("Купить платье для выпускного");
+    setBannerURL("https://dribbble.com/shots");
+    setColorOverlayOnBack(false);
+  };
+  let handlePresetDog = () => {
+    setColorIsActive(true);
+    setImage("https://i.imgur.com/Ii1Qv35.jpg");
+    setColor("rgba(109, 108, 100, 0.5)");
+    setText("Бультерьеры от заводчиков");
+    setBannerURL("https://www.iconfinder.com/");
+    setColorOverlayOnBack(false);
+  };
+
   return (
     <Grid
       container
@@ -55,11 +72,14 @@ function App() {
           bannerURL={bannerURL}
           image={image}
           color={color}
-          handlePresetOne={handlePresetOne}
-          handlePresetTwo={handlePresetTwo}
-          handlePresetThree={handlePresetThree}
+          handlePresetMusk={handlePresetMusk}
+          handlePresetDress={handlePresetDress}
+          handlePresetShoes={handlePresetShoes}
+          handlePresetDog={handlePresetDog}
           colorIsActive={colorIsActive}
           setColorIsActive={setColorIsActive}
+          colorOverlayOnBack={colorOverlayOnBack}
+          setColorOverlayOnBack={setColorOverlayOnBack}
         />
       </Grid>
       <Grid item xs={6}>
@@ -68,6 +88,7 @@ function App() {
           color={color}
           image={image}
           bannerURL={bannerURL}
+          colorOverlayOnBack={colorOverlayOnBack}
         />
       </Grid>
     </Grid>
