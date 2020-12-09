@@ -18,6 +18,7 @@
     "react-dom": "^17.0.1",
     "react-linear-gradient-picker": "^1.1.4",
     "react-scripts": "4.0.1",
+    "rgb-hex": "^3.0.0",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

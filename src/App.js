@@ -10,12 +10,10 @@ function App() {
   const [color, setColor] = useState("rgba(40, 21, 21, 0.5)");
   const [image, setImage] = useState("https://i.imgur.com/tEO5HyY.png");
   const [bannerURL, setBannerURL] = useState("https://ya.ru/");
-  const [containedColor, setContainedColor] = useState("contained");
-  const [containedGradient, setContainedGradient] = useState("");
+  const [colorIsActive, setColorIsActive] = useState(true);
 
   let handlePresetOne = () => {
-    setContainedGradient("");
-    setContainedColor("contained");
+    setColorIsActive(true);
     setImage("https://i.imgur.com/tcsvWvw.jpg ");
     setColor("rgba(187, 171, 62, 0.5)");
     setText("Купить собаку шиба-ину");
@@ -23,8 +21,7 @@ function App() {
   };
 
   let handlePresetTwo = () => {
-    setContainedGradient("");
-    setContainedColor("contained");
+    setColorIsActive(true);
     setImage("https://i.imgur.com/oJHnD4p.jpg");
     setColor("rgba(81, 67, 67, 0.5)");
     setText("Купить платье для выпускного");
@@ -32,8 +29,7 @@ function App() {
   };
 
   let handlePresetThree = () => {
-    setContainedGradient("contained");
-    setContainedColor("");
+    setColorIsActive(false);
     setImage("https://i.imgur.com/uqQVNXu.jpg");
     setColor(
       "linear-gradient(0deg, rgba(197, 197, 39, 0.6) 0%, rgba(161, 46, 239, 0.61) 100%)"
@@ -62,10 +58,8 @@ function App() {
           handlePresetOne={handlePresetOne}
           handlePresetTwo={handlePresetTwo}
           handlePresetThree={handlePresetThree}
-          setContainedColor={setContainedColor}
-          setContainedGradient={setContainedGradient}
-          containedGradient={containedGradient}
-          containedColor={containedColor}
+          colorIsActive={colorIsActive}
+          setColorIsActive={setColorIsActive}
         />
       </Grid>
       <Grid item xs={6}>

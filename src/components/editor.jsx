@@ -8,6 +8,8 @@ import { SketchPicker } from "react-color";
 import { GradientPickerPopover } from "react-linear-gradient-picker";
 import hexToRgba from "hex-to-rgba";
 
+const rgbHex = require("rgb-hex");
+
 const palletToLinearGradient = (pallet) => {
   let result = pallet.map((part) => {
     let opacity = part.opacity || 0.3;
@@ -54,28 +56,18 @@ const Editor = ({
   handlePresetOne,
   handlePresetTwo,
   handlePresetThree,
-  setContainedGradient,
-  setContainedColor,
-  containedColor,
-  containedGradient,
+  colorIsActive,
+  setColorIsActive,
 }) => {
   const [open, setOpen] = useState(false);
   const [angle, setAngle] = useState(90);
   const [palette, setPalette] = useState(initialPallet);
-  const [gradientIsActive, setGradientIsActive] = useState(false);
-  const [colorIsActive, setColorIsActive] = useState(true);
 
   let handleShowColor = () => {
     setColorIsActive(true);
-    setGradientIsActive(false);
-    setContainedColor("contained");
-    setContainedGradient("");
   };
   let handleShowGradient = () => {
-    setGradientIsActive(true);
     setColorIsActive(false);
-    setContainedColor("");
-    setContainedGradient("contained");
   };
 
   return (
@@ -142,13 +134,13 @@ const Editor = ({
           <Grid item>
             <ButtonGroup color="primary">
               <Button
-                variant={containedColor}
+                variant={colorIsActive ? "contained" : ""}
                 onClick={(e) => handleShowColor()}
               >
                 Color
               </Button>
               <Button
-                variant={containedGradient}
+                variant={colorIsActive ? "" : "contained"}
                 onClick={(e) => handleShowGradient()}
               >
                 Gradient
@@ -163,12 +155,11 @@ const Editor = ({
                 label="Color"
                 margin="dense"
                 variant="outlined"
-                value={color}
+                value={"#" + rgbHex(color).slice(0, -2)}
                 type="color"
                 onChange={(e) => onItemColor(hexToRgba(e.target.value, "0.5"))}
               />
-            ) : null}
-            {gradientIsActive ? (
+            ) : (
               <GradientPickerPopover
                 {...{
                   open,
@@ -190,7 +181,7 @@ const Editor = ({
               >
                 <WrappedSketchPicker />
               </GradientPickerPopover>
-            ) : null}
+            )}
           </Grid>
           <Grid item>
             <TextField
