@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.mainContainer {
+  height: 100vh;
+  width: 100vw;
+}
+.trigger {
+  width: 90%;
+}
+#root .gpw .trigger .inner {
+  width: 100%;
+  height: 2rem;
+}
+#root .gpw {
+  padding: 0;
+}

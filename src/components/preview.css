@@ -1,0 +1,50 @@
+.storyWrapper {
+  position: relative;
+  height: 42rem;
+  width: 32rem;
+  overflow: hidden;
+  border-radius: 2rem;
+}
+.previewWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.storyImage {
+  position: absolute;
+  z-index: 1;
+  min-width: 100%;
+  max-height: 42rem;
+  display: block;
+}
+.storyHeadline {
+  position: absolute;
+  z-index: 4;
+  word-break: break-word;
+  bottom: 0;
+  height: 35%;
+  width: 87%;
+  font-size: 4rem;
+  padding: 2rem;
+  color: white;
+  overflow: hidden;
+}
+.colorOverlay {
+  z-index: 3;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.buttonGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 2rem;
+  justify-content: center;
+}
+
+.buttonGroup button {
+  margin: 1rem;
+}
