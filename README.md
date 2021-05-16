@@ -4,10 +4,10 @@
 Есть пресеты, чтобы ориентирвоаться как и что можно сделать(даже есть мемчик с моей любимой собакой на 4 пресете :))
 
 Использовала:
-Material UI (https://material-ui.com/ru/)
-rgb-hex (https://www.npmjs.com/package/rgb-hex)
-image-data-uri (https://www.npmjs.com/package/image-data-uri)
-hex-to-rgba (https://www.npmjs.com/package/hex-to-rgba)
+- Material UI (https://material-ui.com/ru/)
+- rgb-hex (https://www.npmjs.com/package/rgb-hex)
+- image-data-uri (https://www.npmjs.com/package/image-data-uri)
+- hex-to-rgba (https://www.npmjs.com/package/hex-to-rgba)
 
 
 Доступно по ссылке https://frequency01.github.io/stories-creator/
